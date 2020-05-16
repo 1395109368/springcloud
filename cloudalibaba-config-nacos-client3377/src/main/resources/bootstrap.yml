@@ -1,0 +1,17 @@
+server:
+  port: 3377
+spring:
+  application:
+    name: nacos-config-client
+  main:
+    allow-bean-definition-overriding: true   #当遇到相同名字的时候是否允许覆盖
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+      config:
+        server-addr: localhost:8848
+        file-extension: yaml
+   #     namespace:   #命名id
+    #    group: TEST_GROUP
+

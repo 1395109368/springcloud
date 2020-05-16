@@ -1,0 +1,14 @@
+server:
+  port: 80
+
+spring:
+  application:
+    name: cloud-consumer-order
+  zipkin:
+    base-url: http://localhost:9411
+  sleuth:
+    sampler:
+      probability: 1                        #采样值介于0到一之间   1表示全部采集
+  cloud:
+    zookeeper:
+      connect-string: 192.168.204.133:2181     #虚拟机中的地址
