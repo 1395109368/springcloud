@@ -1,0 +1,12 @@
+
+#spring:
+#  rabbitmq:
+#    addresses: 127.0.0.1 #ip地址
+#    port: 5672
+#    username: guest # 账号
+#    password: guest # 密码
+#    virtual-host: /vhost_mmr
+server:
+  port: 8089
+  servlet:
+    context-path: /df

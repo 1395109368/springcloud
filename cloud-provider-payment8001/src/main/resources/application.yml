@@ -1,6 +1,4 @@
 
-
-
 spring:
   application:
     name: cloud-payment-service
@@ -10,10 +8,11 @@ spring:
     sampler:
       probability: 1                        #采样值介于0到一之间   1表示全部采集
   datasource:
-    driver-class-name: oracle.jdbc.driver.OracleDriver
-    url: jdbc:oracle:thin:@127.0.0.1:1521:DLYH
-    username: AUTEK
-    password: FLYVIDEO
+    type: com.alibaba.druid.pool.DruidDataSource
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/dww?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true&useSSL=false&serverTimezone=GMT%2B8&useLegacyDatetimeCode=false
+    username: root
+    password: root
   jpa:
     hibernate:
       ddl-auto: update

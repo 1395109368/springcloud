@@ -1,7 +1,7 @@
 package com.atguigu.springcloud.serviceImpl;
 
 import com.atguigu.springcloud.dao.PaymentDao;
-import com.atguigu.springcloud.entities.Payment;
+import com.atguigu.springcloud.entities.Cc;
 import com.atguigu.springcloud.service.PaymentService;
 import org.springframework.stereotype.Service;
 
@@ -16,18 +16,18 @@ import javax.annotation.Resource;
 @Service
 public class PaymentServiceImpl implements PaymentService {
 
-    @Resource
-    PaymentDao paymentDao;
+  @Resource
+  PaymentDao paymentDao;
 
+  @Override
+  public int create(Cc cc) {
 
+    return paymentDao.insert(cc);
 
-   public  int create(Payment payment){
+  }
 
-       return paymentDao.insert(payment);
-
-   }
-
-  public Payment  getPaymentById(String id){
+  @Override
+  public Cc getPaymentById(String id) {
 
     return paymentDao.selectById(id);
   }

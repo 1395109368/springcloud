@@ -1,6 +1,6 @@
 package com.atguiggu.springcloud.service;
 
-import com.atguigu.springcloud.entities.Payment;
+import com.atguigu.springcloud.entities.Cc;
 
 /**
  * @Auther: http://www.bjsxt.com
@@ -10,8 +10,8 @@ import com.atguigu.springcloud.entities.Payment;
  */
 public interface PaymentService {
 
-    public  int create(Payment payment);
+    public  int create(Cc cc);
 
-    public Payment  getPaymentById(String id);
+    public Cc getPaymentById(String id);
 
 }

@@ -2,7 +2,7 @@ package com.atguigu.springcloud.controller;
 
 
 import com.atguigu.springcloud.entities.CommonResult;
-import com.atguigu.springcloud.entities.Payment;
+import com.atguigu.springcloud.entities.Cc;
 import com.atguigu.springcloud.service.PaymentService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -31,15 +31,15 @@ public class PaymentController<RestController> {
 
     @Value("${server.port}")
     private  String serverPort;
-
+    //通过服务发现来发现该服务的信息
     @Resource
-    private DiscoveryClient discoveryClient;  //通过服务发现来发现该服务的信息
+    private DiscoveryClient discoveryClient;
 
     @PostMapping("/payment/create")
     @ResponseBody
-   public CommonResult create(Payment payment){
+   public CommonResult create(Cc cc){
 
-      int result =  paymentService.create(payment);
+      int result =  paymentService.create(cc);
       System.out.println("插入成功"+result);
 
       if (result>0){
@@ -55,10 +55,10 @@ public class PaymentController<RestController> {
     @ResponseBody
     public CommonResult getPaymentById(@PathVariable String  id){
         System.out.println("进来查询");
-        Payment payment =  paymentService.getPaymentById(id);
+        Cc cc =  paymentService.getPaymentById(id);
 
-        if (payment!=null){
-            return new CommonResult(200,"查询数据成功"+"serverPort"+serverPort,payment);
+        if (cc !=null){
+            return new CommonResult(200,"查询数据成功"+"serverPort"+serverPort, cc);
 
         }else {
             return new CommonResult(444,"查询数据失败"+"serverPort"+serverPort,"null");
@@ -83,8 +83,6 @@ public class PaymentController<RestController> {
         for (ServiceInstance instance : discoveryClient.getInstances("CLOUD-PAYMENT-SERVICE")) {
 
             System.out.println(instance.getServiceId()+"/t"+instance.getHost()+instance.getPort()+"/t"+instance.getUri());
-
-
         }
         return  this.discoveryClient;
     }

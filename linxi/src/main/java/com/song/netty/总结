@@ -1,0 +1,40 @@
+Netty
+1     EventLoopGroup bossGroup = new NioEventLoopGroup(1);
+      EventLoopGroup workerGroup = new NioEventLoopGroup();
+      这是俩个核心对象，所有的业务逻辑都是这俩个对象去执行
+
+2     重点是自己编写的业务处理类  handler
+      ChannelInboundHandlerAdapter   进站适配器
+      ChannelOutboundHandlerAdapter  出站适配器
+
+      channelReadComplete() // 发送数据
+      handlerAdded() //标识连接建立，一但连接，第一个被执行
+      handlerRemoved() //客户端断开连接
+      channelRead0()  //读取数据
+      userEventTriggered() //心跳检测
+      exceptionCaught() //异常 关闭连接
+      channelActive() //上线了
+      channelInactive()//离开了
+      exceptionCaught() //关闭通道
+
+
+      SimpleChannelInboundHandler<pojo封装对象>
+      SimpleChannelOutboundHandler<pojo封装对象>
+
+      ReplayingDecoder<MessageProtocol>     解码器
+      MessageToByteEncoder<MessageProtocol> 编码器
+
+在Netty中客户端的Handler一般继承SimpleChannelInboundHandler抽象类
+服务端Handler一般继承ChannelInboundHandlerAdapter抽象类
+
+Netty 的零拷贝主要包含三个方面：
+
+Netty 的接收和发送 ByteBuffer 采用 DIRECT BUFFERS，使用堆外直接内存进行 Socket 读写，不需要进行字节缓冲区的二次拷贝。
+如果使用传统的堆内存（HEAP BUFFERS）进行 Socket 读写，JVM 会将堆内存 Buffer 拷贝一份到直接内存中，然后才写入 Socket 中。相比于堆外直接内存，消息在发送过程中多了一次缓冲区的内存拷贝。
+
+Netty 提供了组合 Buffer 对象，可以聚合多个 ByteBuffer 对象，用户可以像操作一个 Buffer 那样方便的对组合 Buffer 进行操作，避免了传统通过内存拷贝的方式将几个小 Buffer 合并成一个大的 Buffer。
+
+Netty 的文件传输采用了 transferTo 方法，它可以直接将文件缓冲区的数据发送到目标 Channel，避免了传统通过循环 write 方式导致的内存拷贝问题。
+
+
+RandomAccessFile  可以在内存中修改东西得一个API

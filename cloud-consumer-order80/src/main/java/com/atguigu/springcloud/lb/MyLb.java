@@ -13,29 +13,29 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @version: 1.0
  */
 @Component
-public class MyLb implements LoadBalancer{
+public class MyLb implements LoadBalancer {
 
-    private AtomicInteger atomicInteger  = new AtomicInteger(0);
+  private AtomicInteger atomicInteger = new AtomicInteger(0);
 
-    public final int getAndIncrement(){
-           int current;
-           int next;
-           do {
-                   current=this.atomicInteger.get();
-                   next=current >= 247483647 ? 0 : current+1;
+  public final int getAndIncrement() {
+    int current;
+    int next;
+    do {
+      current = this.atomicInteger.get();
+      next = current >= 247483647 ? 0 : current + 1;
 
-           }while(!this.atomicInteger.compareAndSet(current,next));
-           System.out.println("******第几次访问"+next);
+    } while (!this.atomicInteger.compareAndSet(current, next));
+    System.out.println("******第几次访问" + next);
 
-             return  next;
+    return next;
 
-    }
+  }
 
 
-    @Override
-    public ServiceInstance instances(List<ServiceInstance> serviceInstance) {
-          int index = getAndIncrement()%serviceInstance.size();
+  @Override
+  public ServiceInstance instances(List<ServiceInstance> serviceInstance) {
+    int index = getAndIncrement() % serviceInstance.size();
 
-        return serviceInstance.get(index);
-    }
+    return serviceInstance.get(index);
+  }
 }

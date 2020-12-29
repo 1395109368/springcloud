@@ -1,6 +1,10 @@
 package com.atguigu.springcloud.entities;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.io.Serializable;
 
 /**
  * @Auther: http://www.bjsxt.com
@@ -11,15 +15,13 @@ import lombok.Data;
 
 
 @Data
-public class CommonResult<Object> {
+@AllArgsConstructor
+@NoArgsConstructor
+public class CommonResult<Object> implements Serializable {
 
-    private Integer code;
-    private String message;
-    private  Object  data;
+  private Integer code;
+  private String message;
+  private Object data;
 
-   public  CommonResult(Integer code, String message, Object date){
-       this.code=code;
-       this.message=message;
-       this.data = date;
-   }
+
 }

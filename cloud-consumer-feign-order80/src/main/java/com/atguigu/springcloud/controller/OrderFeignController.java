@@ -1,7 +1,7 @@
 package com.atguigu.springcloud.controller;
 
 import com.atguigu.springcloud.entities.CommonResult;
-import com.atguigu.springcloud.entities.Payment;
+import com.atguigu.springcloud.entities.Cc;
 import com.atguigu.springcloud.service.PaymentFeignService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,7 +23,7 @@ public class OrderFeignController {
     PaymentFeignService paymentFeignService;
 
     @GetMapping(value = "/consumer/payment/get/{id}")
-    public CommonResult<Payment> getPaymentById(@PathVariable("id") String id) {
+    public CommonResult<Cc> getPaymentById(@PathVariable("id") String id) {
 
         return paymentFeignService.getPaymentById(id);
     }

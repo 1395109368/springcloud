@@ -5,10 +5,11 @@ spring:
   application:
     name: cloud-payment-service
   datasource:
-    driver-class-name: oracle.jdbc.driver.OracleDriver
-    url: jdbc:oracle:thin:@127.0.0.1:1521:DLYH
-    username: AUTEK
-    password: FLYVIDEO
+    type: com.alibaba.druid.pool.DruidDataSource
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/dww?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true&useSSL=false&serverTimezone=GMT%2B8&useLegacyDatetimeCode=false
+    username: root
+    password: root
   jpa:
     hibernate:
       ddl-auto: update
@@ -28,12 +29,12 @@ eureka:
 #mybatis的配置
 mybatis:
   mapper-locations: classpath*:/mapper/*.xml
-  type-aliases-package: com.atguiggu.springcloud.entites
+  type-aliases-package: com.atguigu.springcloud.vo
 
 
 mybatis-plus:
   mapper-locations: classpath*://mapper/*.xml
-  type-aliases-package: com.atguiggu.springcloud.entites
+  type-aliases-package: com.atguigu.springcloud.vo
   configuration:
     map-underscore-to-camel-case: true
 

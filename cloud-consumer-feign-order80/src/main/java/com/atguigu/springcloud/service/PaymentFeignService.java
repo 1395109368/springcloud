@@ -1,7 +1,7 @@
 package com.atguigu.springcloud.service;
 
 import com.atguigu.springcloud.entities.CommonResult;
-import com.atguigu.springcloud.entities.Payment;
+import com.atguigu.springcloud.entities.Cc;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 public interface PaymentFeignService {
 
     @GetMapping(value="/payment/get/{id}")
-    public CommonResult<Payment> getPaymentById(@PathVariable String  id);
+    public CommonResult<Cc> getPaymentById(@PathVariable String  id);
 
     @GetMapping(value = "/payment/feign/timout")
     public  String paymentFeignTimeout();

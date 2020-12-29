@@ -1,7 +1,7 @@
 package com.atguigu.springcloud.dao;
 
 
-import com.atguigu.springcloud.entities.Payment;
+import com.atguigu.springcloud.entities.Cc;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -12,7 +12,7 @@ import org.apache.ibatis.annotations.Mapper;
  * @version: 1.0
  */
 @Mapper
-public interface PaymentDao extends BaseMapper<Payment> {
+public interface PaymentDao extends BaseMapper<Cc> {
 
 
 

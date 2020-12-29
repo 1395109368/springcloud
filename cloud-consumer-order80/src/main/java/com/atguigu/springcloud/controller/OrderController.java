@@ -1,7 +1,7 @@
 package com.atguigu.springcloud.controller;
 
 import com.atguigu.springcloud.entities.CommonResult;
-import com.atguigu.springcloud.entities.Payment;
+import com.atguigu.springcloud.entities.Cc;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
@@ -37,22 +37,23 @@ public class OrderController {
     LoadBalancer loadBalancer;
 
     @GetMapping("/consumer/payment/create")
-    public CommonResult create(Payment payment) {
-
+    public CommonResult create(Cc cc) {
         /*使用这个 restTemple  代替  发起请求  别忘了配置*/
-        return restTemplate.postForObject(PAYMENT_URL + "/payment/create", payment, CommonResult.class);
+        return restTemplate.postForObject(PAYMENT_URL + "/payment/create", cc, CommonResult.class);
 
     }
 
     @GetMapping("/consumer/payment/get/{id}")
-    public CommonResult<Payment> getPayment(@PathVariable("id") Long id) {
+    public CommonResult<Cc> getPayment(@PathVariable("id") Long id) {
         return restTemplate.getForObject(PAYMENT_URL + "/payment/get/" + id, CommonResult.class);
     }
 
 
     @GetMapping("/consumer/payment/getFEntity/{id}")
-    public CommonResult<Payment> getPayment2(@PathVariable("id") Long id) {
-        ResponseEntity<CommonResult> entity = restTemplate.getForEntity(PAYMENT_URL + "payment/get" + id, CommonResult.class);
+    public CommonResult<Cc> getPayment2(@PathVariable("id") Long id) {
+
+        ResponseEntity<CommonResult> entity = restTemplate.getForEntity(PAYMENT_URL + "payment/get/" + id, CommonResult.class);
+
         if (entity.getStatusCode().is2xxSuccessful()) {
             return entity.getBody();   //返回响应体内容
         } else {
@@ -61,6 +62,7 @@ public class OrderController {
 
     }
 
+    // 随机访问
     @GetMapping("/consumer/payment/lb")
     public String getPaymentLB() {
         List<ServiceInstance> instances = discoveryClient.getInstances("CLOUD-PAYMENT-SERVICE");

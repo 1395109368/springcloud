@@ -17,20 +17,20 @@ import javax.annotation.Resource;
 @RestController
 public class OrderNacosController {
 
-    @Value("${server.port}")
-    private String serverPort;
+  @Value("${server.port}")
+  private String serverPort;
 
-    @Value("${service-url.nacos-users-service}")
-    private String url;
+  @Value("${service-url.nacos-users-service}")
+  private String url;
 
-    @Resource
-    RestTemplate restTemplate;
+  @Resource
+  RestTemplate restTemplate;
 
-    @GetMapping("/consumer/payment/nacos/{id}")
-    public String paymentInfo(@PathVariable("id") String id) {
+  @GetMapping("/consumer/payment/nacos/{id}")
+  public String paymentInfo(@PathVariable("id") String id) {
 
-        return restTemplate.getForObject(url + "/payment/nacos/" + id, String.class);
-    }
+    return restTemplate.getForObject(url + "/payment/nacos/" + id, String.class);
+  }
 
 
 }
