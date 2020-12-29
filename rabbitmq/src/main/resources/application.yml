@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: springboot_rabbbitmq
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest # 账号
+    password: guest # 密码
+    virtual-host: /vhost_mmr
+
