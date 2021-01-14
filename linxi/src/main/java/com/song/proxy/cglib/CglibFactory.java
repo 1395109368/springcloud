@@ -1,4 +1,4 @@
-package com.song.proxy;
+package com.song.proxy.cglib;
 
 import java.lang.reflect.Method;
 import org.springframework.cglib.proxy.Enhancer;

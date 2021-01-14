@@ -10,8 +10,8 @@ import com.atguigu.springcloud.entities.Cc;
  */
 public interface PaymentService {
 
-    public  int create(Cc cc);
+  int create(Cc cc);
 
-    public Cc getPaymentById(String id);
+  Cc getPaymentById(String id);
 
 }

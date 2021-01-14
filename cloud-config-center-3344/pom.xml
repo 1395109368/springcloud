@@ -48,6 +48,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
             <scope>runtime</scope>
+            <!--下面的这个true表示俩个项目之间的以来不传递 -->
             <optional>true</optional>
         </dependency>
         <dependency>
@@ -58,6 +59,7 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
+            <!--下面这个test表示这个类只会test目录下才能导入-->
             <scope>test</scope>
         </dependency>
     </dependencies>

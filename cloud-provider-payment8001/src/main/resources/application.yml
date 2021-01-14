@@ -30,19 +30,18 @@ eureka:
     prefer-ip-address: true    #访问路径可以正确显示路径
     #Eureka客户端向服务端发送心跳的时间间隔，单位为毫秒  默认30
     lease-renewal-interval-in-seconds: 1
-#
     lease-expiration-duration-in-seconds: 2020
 
 #mybatis的配置
 mybatis:
   mapper-locations: classpath*:/mapper/*.xml
-  type-aliases-package: com.atguiggu.springcloud.entites
+  type-aliases-package: com.atguigu.springcloud.entities
 
 
 mybatis-plus:
-    mapper-locations: classpath*:/mapper/*.xml
-    type-aliases-package: com.atguiggu.springcloud.entites
-    configuration:
-      map-underscore-to-camel-case: true
+  mapper-locations: classpath*:/mapper/*.xml
+  type-aliases-package: com.atguiggu.springcloud.entites
+  configuration:
+    map-underscore-to-camel-case: true
 server:
   port: 8001

@@ -78,21 +78,6 @@
       <artifactId>poi</artifactId>
       <version>${poi.version}</version>
     </dependency>
-    <!--<dependency>-->
-      <!--<groupId>org.apache.poi</groupId>-->
-      <!--<artifactId>poi-ooxml</artifactId>-->
-      <!--<version>${poi.version}</version>-->
-    <!--</dependency>-->
-    <!--<dependency>-->
-      <!--<groupId>org.apache.poi</groupId>-->
-      <!--<artifactId>poi-ooxml-schemas</artifactId>-->
-      <!--<version>${poi.version}</version>-->
-    <!--</dependency>-->
-    <!--<dependency>-->
-      <!--<groupId>org.apache.poi</groupId>-->
-      <!--<artifactId>poi-scratchpad</artifactId>-->
-      <!--<version>${poi.version}</version>-->
-    <!--</dependency>-->
     <!-- 添加 swagger2 注解-->
     <dependency>
       <groupId>io.springfox</groupId>
@@ -110,24 +95,6 @@
       <artifactId>jjwt-api</artifactId>
       <version>0.11.2</version>
     </dependency>
-
-    <!--<dependency>-->
-      <!--<groupId>org.jxls</groupId>-->
-      <!--<artifactId>jxls-reader</artifactId>-->
-      <!--<version>2.0.3</version>-->
-    <!--</dependency>-->
-    <!--<dependency>-->
-      <!--<groupId>io.jsonwebtoken</groupId>-->
-      <!--<artifactId>jjwt-impl</artifactId>-->
-      <!--<version>0.11.2</version>-->
-      <!--<scope>runtime</scope>-->
-    <!--</dependency>-->
-    <!--<dependency>-->
-      <!--<groupId>io.jsonwebtoken</groupId>-->
-      <!--<artifactId>jjwt-jackson</artifactId>-->
-      <!--<version>0.11.2</version>-->
-      <!--<scope>runtime</scope>-->
-    <!--</dependency>-->
     <dependency>
       <groupId>org.apache.poi</groupId>
       <artifactId>poi-ooxml</artifactId>
@@ -149,7 +116,9 @@
       <artifactId>pinyin4j</artifactId>
       <version>2.5.0</version>
     </dependency>
-
-
+    <dependency>
+      <groupId>org.reflections</groupId>
+      <artifactId>reflections</artifactId>
+    </dependency>
   </dependencies>
 </project>

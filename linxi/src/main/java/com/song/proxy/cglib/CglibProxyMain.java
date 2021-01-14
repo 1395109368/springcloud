@@ -1,4 +1,7 @@
-package com.song.proxy;
+package com.song.proxy.cglib;
+
+import com.song.proxy.service.HelloService;
+import com.song.proxy.service.impl.HelloServiceImpl;
 
 /**
  * cgb代理

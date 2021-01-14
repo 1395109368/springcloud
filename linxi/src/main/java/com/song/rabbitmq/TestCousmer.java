@@ -1,5 +1,7 @@
 package com.song.rabbitmq;
 
+import com.song.exception.SelfRunTimeException;
+
 /**
  * @Auther: sf
  * @Date: 2020/7/27
@@ -8,5 +10,11 @@ package com.song.rabbitmq;
 public class TestCousmer {
 
 
+  public void selfMessageException() {
 
+    if (1 != 1) {
+
+      throw new SelfRunTimeException("这是");
+    }
+  }
 }

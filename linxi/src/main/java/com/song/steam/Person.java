@@ -14,10 +14,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Person {
 
-    private String name;
-     private Integer age;
-      private String country;
-      private char sex;
+  private String name;
+  private Integer age;
+  private String country;
+  private char sex;
 
 
 }
