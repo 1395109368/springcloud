@@ -42,7 +42,7 @@ public class LogAspectHandler {
 
     Signature signature = joinPoint.getSignature();
     String name = signature.getName();
-    System.out.println("发生异常方法的名字" + name + "异常 + " + ex);
+    System.out.println("发生异常方法的名qq字" + name + "异常 + " + ex);
 
   }
 }
